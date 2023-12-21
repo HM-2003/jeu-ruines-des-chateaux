@@ -1,0 +1,105 @@
+# depslib dependency file v1.0
+1584205420 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\main.cpp
+	<iostream>
+
+1703025572 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\direction.cpp
+	"direction.h"
+
+1703025605 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\direction.h
+
+1703026698 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\typecase.cpp
+	"typeCase.h"
+
+1703104025 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\typecase.h
+	<string>
+	"string.h"
+
+1703024197 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\epee.cpp
+	"epee.h"
+
+1703117346 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\epee.h
+	"equipement.h"
+
+1703104103 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\typeequipement.h
+	<string>
+	"string.h"
+
+1703023810 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\typeequipement.cpp
+	"typeEquipement.h"
+
+1703104133 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\armure.cpp
+	"armure.h"
+
+1703116988 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\armure.h
+	"equipement.h"
+
+1703025465 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\monstreaveugle.cpp
+	"monstreAveugle.h"
+
+1703025440 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\monstreaveugle.h
+	"typeMonstre.h"
+
+1703104178 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\typemonstre.h
+	"direction.h"
+	<string>
+	"string.h"
+
+1703025295 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\monstrenormale.cpp
+	"monstreNormale.h"
+
+1703025351 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\monstrenormale.h
+	"typeMonstre.h"
+
+1703024807 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\typemonstre.cpp
+	"typeMonstre.h"
+
+1703027516 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\amulette.cpp
+	"amulette.h"
+
+1703104545 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\amulette.h
+
+1703027355 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\terrain.cpp
+	"terrain.h"
+
+1703104759 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\terrain.h
+
+1703117172 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\equipement.h
+	"armure.h"
+	"epee.h"
+
+1703107186 source:c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\src\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+
+1703107182 c:\users\hibah\desktop\ruines_chateaux\ruineschateaux\include\point.h
+	<iosfwd>
+
+1703167137 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\main.cpp
+	<iostream>
+
+1703167137 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\src\amulette.cpp
+	"amulette.h"
+
+1703167137 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\include\amulette.h
+
+1703167138 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\src\direction.cpp
+	"direction.h"
+
+1703167137 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\include\direction.h
+
+1703167138 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\src\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+
+1703167137 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\include\point.h
+	<iosfwd>
+
+1703167137 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\src\mur.cpp
+	"Mur.h"
+
+1703167137 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\ruineschateaux\include\mur.h
+	"point.h"
+	<memory>
+
