@@ -1,31 +1,23 @@
 #ifndef MONSTRE_H
 #define MONSTRE_H
-#include"point.h";
-#include "aventurier.h";
 
+#include "point.h"
+#include "Aventurier.h"
 
+class Monstre {
+public:
+    Monstre(const geom::point& position, int pointsDeVie, int pointDeForce, int pointsDurabilite);
+    virtual ~Monstre();
+    virtual void attaquerAventurier(int pointsDeAventurier) const = 0;
+    virtual void deplacer() const = 0;
+    virtual void recevoirDegats(int degats) const = 0;
+    bool estVaincu() const;
 
-class Monstre     
-{
-    public:
-    	Monstre();
-    	virtual~Monstre();
-        virtual void attaquerAvent( int PointdeAventurier)const;
-        virtual void deplacer()const ; 
-		virtual void recevoirDegats(int degats)const;
-		bool estVaincu(); 
-
-
-  
-    
-    	
-     private:
-        int PointDeVie;
-        int PointDeForce;
-        point position;
-        int Pointdurabilite;
-        int degats;
-       
+protected:
+    int pointsDeVie;
+    int pointDeForce;
+    geom::point position;
+    int pointsDurabilite;
 };
 
 #endif // MONSTRE_H
