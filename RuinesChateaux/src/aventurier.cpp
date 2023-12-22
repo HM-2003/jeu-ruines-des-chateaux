@@ -3,7 +3,7 @@
 #include<iostream>
 #include<vector>
 
-aventurier::aventurier(const point& position, int pointDeVie, int pointDeForce)
+aventurier::aventurier(const geom::point& position, int pointDeVie, int pointDeForce)
     : Position(position), PointDeVie(pointDeVie), PointDeForce(pointDeForce), PossedeAmulette(false) {}
 
 
@@ -33,10 +33,10 @@ void aventurier::deplacerVersBas() {
 }
 
 
-void aventurier::attaquerMonstr(std::vector<monstre>& Monstres) {
+void aventurier::attaquerMonstre(std::vector<Monstre>& Monstres) {
     bool tousVaincus = true;
 
-    for (monstre& Monstre : Monstres) {
+    for (Monstre& Monstre : Monstres) {
 
         if (Position.distance(Monstre.getPosition()) < 2.0 && !Monstre.estVaincu()) {
 

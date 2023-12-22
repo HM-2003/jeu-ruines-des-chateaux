@@ -103,3 +103,53 @@
 	"point.h"
 	<memory>
 
+1703252053 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\main.cpp
+	<iostream>
+
+1703252054 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\amulette.cpp
+	"amulette.h"
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\amulette.h
+
+1703252054 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\armure.cpp
+	"armure.h"
+	<iostream>
+	<cstdlib>
+	<ctime>
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\armure.h
+	"equipement.h"
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\equipement.h
+
+1703252054 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\direction.cpp
+	"direction.h"
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\direction.h
+
+1703252054 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\epee.cpp
+	"epee.h"
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\epee.h
+	"equipement.h"
+
+1703252054 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\equipement.cpp
+	"equipement.h"
+	<iostream>
+	<cstdlib>
+
+1703252054 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\mur.cpp
+	"Mur.h"
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\mur.h
+	"point.h"
+	<memory>
+
+1703252054 c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\include\point.h
+	<iosfwd>
+
+1703252055 source:c:\users\hibah\desktop\ruines_chateaux\jeu-ruines-des-chateaux-master\jeu-ruines-des-chateaux-master\ruineschateaux\src\point.cpp
+	<iostream>
+	<cmath>
+	"point.h"
+

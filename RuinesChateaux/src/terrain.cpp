@@ -1,6 +1,6 @@
 #include "terrain.h"
 
-terrain::terrain(aventurier& Av,Monstre& Mo,amulette& Am,Mur& mr):Aventurier{Av},Monstre{Mo},Amulette{Am},mur{mr}{}
+terrain::terrain(aventurier& Av,Monstre& Mo,amulette& Am,geom::Mur& mr):Aventurier{Av},Monstre{Mo},Amulette{Am},mur{mr}{}
 
 terrain::~terrain()
 {

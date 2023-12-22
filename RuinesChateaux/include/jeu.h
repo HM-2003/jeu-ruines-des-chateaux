@@ -2,8 +2,9 @@
 #define JEU_H
 #include"terrain.h"
 #include"aventurier.h"
-#include"monstre.h"
+#include"Monstre.h"
 #include"amulette.h"
+#include"direction.h"
 #include<vector>
 
 class jeu
@@ -22,7 +23,7 @@ class jeu
     private:
         terrain Terrain;
         aventurier Aventurier;
-       std::vector<monstre> Monstres;
+       std::vector<Monstre> Monstres;
         amulette Amulette;
 
 };

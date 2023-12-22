@@ -2,20 +2,21 @@
 #define AVENTURIER_H
 #include"equipement.h"
 #include"point.h"
-#include"monstre.h"
+#include"Monstre.h"
+#include<vector>
 
 
 
 class aventurier
 {
     public:
-        aventurier(const point& position, int pointDeVie=20,int pointdeforce=10);
-        point Position();
+        aventurier(const geom::point& position, int pointDeVie=20,int pointdeforce=10);
+        geom::point Position();
         void deeplacerVersGauche();
         void deplacerVersDroite();
         void deplacerVersHaut();
         void deplacerVersBas();
-        void attaquerMonstr(monstre& Monstre);
+        void attaquerMonstre(std::vector<Monstre>& Monstres);
         //void ramasserPieces(int pieces);
         void ramasserAmulette();
         void recevoirDegats(int degats);
@@ -26,7 +27,7 @@ class aventurier
         int PointDeVie ;
         int PointDeForce;
        bool PossedeAmulette;
-        point Position;
+       geom::point Position;
 
 };
 

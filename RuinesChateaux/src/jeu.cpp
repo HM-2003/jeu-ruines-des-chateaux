@@ -1,4 +1,5 @@
 #include "jeu.h"
+#include<iostream>
 
 jeu::jeu()
 {
@@ -8,7 +9,7 @@ jeu::jeu()
 }
 
 
-void Jeu::jouer() {
+void jeu::jouer() {
     std::cout << "Bienvenue dans le jeu!" << std::endl;
     std::cout << "Utilisez les touches A, D, W, S, T, Z pour jouer." << std::endl;
     std::cout << "A : Déplacer à gauche, D : Déplacer à droite, W : Déplacer en haut, S : Déplacer en bas" << std::endl;
@@ -16,16 +17,16 @@ void Jeu::jouer() {
 
     char input;
     while (Aventurier.estVivant()) {
-    	
+
         std::cout << "Entrez une commande : ";
         std::cin >> input;
-        handleInput(input); 
+        handleInput(input);
         updateGame();
-        
+
     }
     std::cout << "Game Over! Vous avez été vaincu." << std::endl;
 }
-void Jeu::handleInput(char Choix) {
+void jeu::handleInput(char Choix) {
     switch (Choix) {
         case 'A':
             Aventurier.deplacerVersGauche();
@@ -46,7 +47,7 @@ void Jeu::handleInput(char Choix) {
             Aventurier.ramasserAmulette();
             break;
         default:
-           
+
             break;
     }
 }

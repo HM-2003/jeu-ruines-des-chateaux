@@ -1,7 +1,7 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 #include"aventurier.h"
-#include"monstre.h"
+#include"Monstre.h"
 #include"amulette.h"
 #include"Mur.h"
 
@@ -11,7 +11,7 @@
 class terrain
 {
     public:
-        terrain(aventurier& Av,Monstre& Mo,amulette& Am,Mur& mr);
+        terrain(aventurier& Av,Monstre& Mo,amulette& Am,geom::Mur& mr);
         virtual ~terrain();
         void ajouterMonstre();
         void ajouterAventurier();
@@ -25,7 +25,7 @@ class terrain
         aventurier Aventurier;
         Monstre Monstre;
         amulette Amulette;
-        Mur mur;
+        geom::Mur mur;
 
 
 
