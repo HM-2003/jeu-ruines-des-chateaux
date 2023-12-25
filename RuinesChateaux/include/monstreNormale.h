@@ -7,9 +7,9 @@
 
 class MonstreNormale : public Monstre {
 public:
-    MonstreNormale(const geom::point& position, int pointsDeVie, int pointDeForce);
+    MonstreNormale(const geom::point& position, int pointsDeVie, int pointDeForce,int pointDurabilite);
     void deplacer(const geom::Mur& mur, const aventurier& aventurier) override;
-    void attaquerAventurier(aventurier& aventurier) override;
+    void attaquerAventurier(int pointsDeAventurier) override;
     void recevoirDegats(int degats) override;
     bool toucherMur(const geom::Mur& mur) const;
     bool estVaincu() const;

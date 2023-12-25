@@ -1,5 +1,5 @@
 #include "aventurier.h"
-#include "Monstre.h"
+
 #include<iostream>
 #include<vector>
 
@@ -33,10 +33,10 @@ void aventurier::deplacerVersBas() {
 }
 
 
-void aventurier::attaquerMonstre(std::vector<Monstre>& Monstres) {
+void aventurier::attaquerMonstre(std::vector<Monstre>& monstres) {
     bool tousVaincus = true;
 
-    for (Monstre& Monstre : Monstres) {
+    for (Monstre& Monstre : monstres) {
 
         if (Position.distance(Monstre.getPosition()) < 2.0 && !Monstre.estVaincu()) {
 

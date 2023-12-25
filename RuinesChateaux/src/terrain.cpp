@@ -7,23 +7,24 @@ terrain::~terrain()
     //dtor
 }
 
-void terrain::ajouterMonstre()
+void terrain::ajouterMonstre(Monstre* Pmonstre)
 {
-    //dtor
+    Monstres.push_back(Pmonstre);
 }
 
-void terrain::ajouterAventurier(point& pos)
+void terrain::ajouterAventurier(geom::point& pos)
 {
-    aventurier(pos);
+    Aventurier =aventurier(pos);
 }
 
-void terrain::ajouterAmulette(point& pos)
+void terrain::ajouterAmulette(geom::point& pos)
 {
-    amulette(pos);
+    Amulette = amulette(pos);
 }
 
 
-void terrain::ajouterMur()
+/*void terrain::ajouterMur(geom::Mur& pos)
 {
-
+   Mur(pos);
 }
+*/

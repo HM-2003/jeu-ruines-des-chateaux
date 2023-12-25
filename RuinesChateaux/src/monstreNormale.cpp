@@ -1,12 +1,13 @@
 #include"monstreNormale.h"
-MonstreNormale::MonstreNormale(const geom::point& position, int pointsDeVie, int pointDeForce)
-    : Monstre(position, pointsDeVie, pointDeForce) {}
+#include"aventurier.h"
+MonstreNormale::MonstreNormale(const geom::point& position, int pointsDeVie, int pointDeForce,int pointDurabilite)
+    : Monstre {position,pointsDeVie,pointDeForce,pointDurabilite}{}
 
 bool MonstreNormale::toucherMur(const geom::Mur& mur) const {
     return (position == mur.obtenir_position());
 }
 
-void MonstreNormale::attaquerAventurier(aventurier& aventurier) override
+void MonstreNormale::attaquerAventurier(int pointsDeAventurier)
 {
     aventurier.recevoirDegats(pointDeForce);
 }
@@ -34,7 +35,7 @@ void MonstreNormale::deplacer(const geom::Mur& mur, const aventurier& aventurier
     }
 }
 
-void MonstreNormale::recevoirDegats(int degats) {
+void MonstreNormale::recevoirDegats(int degats){
     Monstre::recevoirDegats(degats);
 }
 bool MonstreNormale::estVaincu() const {
