@@ -23,7 +23,7 @@ namespace geom {
         bool estAmulette(const point& position) const;
         bool estMonstre(const point& position) const;
         bool estAventurier(const point& position) const;
-
+        bool estPositionLibre(const point& pos) const;
         void afficher() const;
 
     private:

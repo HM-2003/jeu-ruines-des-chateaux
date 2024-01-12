@@ -3,10 +3,13 @@
 
 #include "Terrain.h"
 #include "Aventurier.h"
-#include "Monstre.h"
+#include "MonstreVoyant.h"
+#include "MonstreAveugle.h"
+#include "Mur.h"
 #include "Amulette.h"
-#include <vector>
+#include "point.h"
 #include <iostream>
+#include <vector>
 
 namespace geom {
     class Jeu {
@@ -24,7 +27,7 @@ namespace geom {
 
         void initialiserJeu();
         void tourDeJeu();
-        void deplacerAventurier();
+        void  deplacerAventurier();
         void deplacerMonstres();
         bool aventurierAGagne();
         void nettoyerRessources();

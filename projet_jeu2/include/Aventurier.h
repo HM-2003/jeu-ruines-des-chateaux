@@ -27,11 +27,11 @@ namespace geom {
         char getSymbole() const;
 
     private:
-        point position;
-        int pointsDeVie;
-        int pointsDeForce;
-        Epee* epee;
-        Armure* armure;
+        point d_position;
+        int d_pointsDeVie;
+        int d_pointsDeForce;
+        Epee* d_epee;
+        Armure* d_armure;
     };
 }
 

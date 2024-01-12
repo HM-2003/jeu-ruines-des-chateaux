@@ -22,6 +22,7 @@ namespace geom {
         point position;
         int pointsDeVie;
         int pointsDeForce;
+        
     };}
 
 #endif
