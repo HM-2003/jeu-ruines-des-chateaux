@@ -1,104 +1,173 @@
-/*#include "Jeu.h"
+#include "Jeu.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
+
 namespace geom {
-
-Jeu::Jeu(int largeurTerrain, int hauteurTerrain)
-    : terrain(largeurTerrain, hauteurTerrain), enCours(false) {
-   aventurier = std::make_unique<Aventurier>(point(0, 0), 100, 10); // Exemple
-
-    // Ajouter des monstres
-    MonstreVoyant monstre1(point(3, 3), 50, 5);
-    MonstreAveugle monstre2(point(5, 5), 50, 5);
-    terrain.ajouterMonstre(monstre1);
-    terrain.ajouterMonstre(monstre2);
-
-    // Ajouter une amulette
-    Amulette amulette(point(9, 9));
-    terrain.placerAmulette(&amulette);
-
-}
-
-void Jeu::demarrer() {
-    afficherMenu();
-    while (jeuEnCours()) {
-        traiterInput();
-        miseAJour();
-        afficherTerrain();
+    Jeu::Jeu() : terrain(40, 20), aventurier(nullptr), amulette(nullptr) {
+  
     }
-}
 
-void Jeu::afficherMenu() {
-    char choix;
-    std::cout << "Bienvenue dans le jeu d'aventure!" << std::endl;
-    std::cout << "Appuyez sur 'Y' pour commencer ou 'Q' pour quitter: ";
-    std::cin >> choix;
-
-    if (choix == 'Y' || choix == 'y') {
-        enCours = true;
-    } else {
-        enCours = false;
+    Jeu::~Jeu() {
+        delete aventurier;
+        for (auto monstre : monstres) {
+            delete monstre;
+        }
+        delete amulette;
     }
-}
 
-void Jeu::traiterInput() {
-    char commande;
-    std::cout << "Entrez une commande ('a' gauche, 'd' droite, 'w' haut, 's' bas, 'F' attaquer): ";
-    std::cin >> commande;
-
-    switch (commande) {
-        case 'a':
-            deplacerAventurier();
-            break;
-        case 'd':
-            deplacerAventurier();
-            break;
-        case 'w':
-            deplacerAventurier();
-            break;
-        case 's':
-            deplacerAventurier();
-            break;
-        case 'F':
-            // aventurier->attaquer(); // implémentez la logique d'attaque
-            break;
-        default:
-            std::cout << "Commande inconnue!" << std::endl;
+    void Jeu::initialiserJeu() {
+        for (int i = 0; i < 40; ++i) {
+        terrain.placerMur(geom::Mur(geom::point(i, 0)));  
+        terrain.placerMur(geom::Mur(geom::point(i, 19))); 
     }
+    for (int j = 1; j < 19; ++j) {
+        terrain.placerMur(geom::Mur(geom::point(0, j)));  
+        terrain.placerMur(geom::Mur(geom::point(39, j)));
+    }
+for (int i = 20; i < 40; ++i) {
+    terrain.placerMur(geom::Mur(geom::point(i, 14)));
+     terrain.placerMur(geom::Mur(geom::point(i, 8)));
+}
+for (int y = 2; y < 5; ++y) {
+    terrain.placerMur(geom::Mur(geom::point(26, y)));
+	  
 }
 
-void Jeu::miseAJour() {
-    deplacerMonstres();
-    verifierVictoire();
+for (int y = 17; y < 20; ++y) { 
+    terrain.placerMur(geom::Mur(geom::point(28, y)));
 }
+    for (int i = 1; i < 20; ++i) {
+        terrain.placerMur(geom::Mur(geom::point(i, 5)));
+        terrain.placerMur(geom::Mur(geom::point(i, 10)));
+          terrain.placerMur(geom::Mur(geom::point(i, 17)));
+        if (i > 20 && i < 30) {
+            terrain.placerMur(geom::Mur(geom::point(i, 15)));
+           
+        }
+    }
 
-bool Jeu::jeuEnCours() const {
-    return enCours;
+   
+    geom::Aventurier* aventurier = new geom::Aventurier(geom::point(1, 1), 100, 10);
+    terrain.placerAventurier(aventurier);
+
+   
+    std::vector<geom::Monstre*> monstres;
+    monstres.push_back(new geom::MonstreVoyant(geom::point(10, 3), 50, 5));
+    monstres.push_back(new geom::MonstreAveugle(geom::point(25, 10), 40, 4));
+    monstres.push_back(new geom::MonstreVoyant(geom::point(35, 15), 60, 6));
+     monstres.push_back(new geom::MonstreAveugle(geom::point(34, 4), 40, 4));
+     monstres.push_back(new geom::MonstreAveugle(geom::point(4, 18), 40, 4));
+    for (auto monstre : monstres) {
+        terrain.ajouterMonstre(monstre);
+    }
+
+    geom::Amulette* amulette = new geom::Amulette(geom::point(38, 18));
+    terrain.placerAmulette(amulette);
+
+   
+    }
+
+    void Jeu::lancerJeu() {
+        initialiserJeu();
+        tourDeJeu();
+    }
+
+  void Jeu::tourDeJeu() {
+    bool jeuEnCours = true;
+    while (jeuEnCours) {
+        terrain.afficher(); 
+
+        deplacerAventurier(); 
+        deplacerMonstres();
+
+        for (size_t i = 0; i < monstres.size(); ++i) {
+            if (aventurier->getPosition() == monstres[i]->getPosition()) {
+                aventurier->attaquer(*monstres[i]);
+                if (monstres[i]->getPV() <= 0) {
+                    delete monstres[i];
+                    monstres.erase(monstres.begin() + i);
+                    --i; 
+                    continue; 
+                }
+                monstres[i]->attaquer(*aventurier);
+                if (aventurier->getPV() <= 0) {
+                    std::cout << "Vous avez été vaincu par le monstre." << std::endl;
+                    jeuEnCours = false;
+                    break;
+                }
+            }
+        }
+
+        if (aventurierAGagne()) {
+            std::cout << "Vous avez trouvé l'amulette! Vous avez gagné!" << std::endl;
+            jeuEnCours = false;
+        }
+    }
 }
 
 void Jeu::deplacerAventurier() {
-    // Implémentez la logique de déplacement de l'aventurier ici
+    char direction;
+    std::cout << "Entrez une direction (w: haut, a: gauche, s: bas, d: droite): ";
+    std::cin >> direction;
+
+    point nouvellePosition = aventurier->getPosition(); // Déclaration de nouvellePosition
+
+    switch (direction) {
+        case 'w': 
+            nouvellePosition.move(0, -1);
+            break;
+        case 'a': 
+            nouvellePosition.move(-1, 0);
+            break;
+        case 's': 
+            nouvellePosition.move(0, 1);
+            break;
+        case 'd': 
+            nouvellePosition.move(1, 0);
+            break;
+        default:
+            std::cout << "Direction non valide. Veuillez réessayer." << std::endl;
+            return;
+    }
+
+    if (terrain.estPositionLibre(nouvellePosition)) {
+        aventurier->deplacer(direction);
+        terrain.afficher();
+    } else {
+        std::cout << "Déplacement impossible : position occupée ou hors limites." << std::endl;
+    }
 }
+
 
 void Jeu::deplacerMonstres() {
-    for (auto& monstre : monstres) {
-        // monstre->deplacer();
+    for (auto monstre : monstres) {
+        if (auto mv = dynamic_cast<MonstreVoyant*>(monstre)) {
+            
+            mv->deplacer(aventurier->getPosition());
+        } else if (auto ma = dynamic_cast<MonstreAveugle*>(monstre)) {
+            
+            int dx = rand() % 3 - 1; 
+            int dy = rand() % 3 - 1; 
+
+            point nouvellePosition = ma->getPosition();
+            nouvellePosition.move(dx, dy);
+
+            if (terrain.estPositionLibre(nouvellePosition)) {
+                ma->deplacer();
+            }
+        }
     }
 }
-
-void Jeu::verifierVictoire() {
-    if () {
-        std::cout << "Vous avez gagné!" << std::endl;
-        enCours = false;
+  bool Jeu::aventurierAGagne() {
+ 
+    if (aventurier->getPosition() == amulette->getPosition()) {
+        return true; 
     }
+    return false;
 }
 
-void Jeu::afficherTerrain() {
-    terrain.afficher();
 }
 
-} // namespace geom
 
-*/

@@ -1,43 +1,43 @@
 #include "Monstre.h"
 #include "Aventurier.h"
 namespace geom {
-    Aventurier::Aventurier(const point& positionInitiale, int pv, int force): position(positionInitiale), pointsDeVie(pv), pointsDeForce(force) {}
+    Aventurier::Aventurier(const point& positionInitiale, int pv, int force): d_position(positionInitiale), d_pointsDeVie(pv), d_pointsDeForce(force) {}
     
     
-      Aventurier::Aventurier(const Aventurier& autre): position(autre.position), pointsDeVie(autre.pointsDeVie), pointsDeForce(autre.pointsDeForce) {}
+      Aventurier::Aventurier(const Aventurier& autre): d_position(autre.d_position), d_pointsDeVie(autre.d_pointsDeVie), d_pointsDeForce(autre.d_pointsDeForce) {}
       
 
 
-      void Aventurier::deplacer(char direction) {
-   double dx = 0, dy = 0;
-            switch (direction) {
-                case 'w': dy = -1; break;
-                case 's': dy = 1; break;
-                case 'a': dx = -1; break;
-                case 'd': dx = 1; break;
-            }
+ void Aventurier::deplacer(char direction) {
+    double dx = 0, dy = 0;
+    switch (direction) {
+        case 'w': dy = -1; break;
+        case 's': dy = 1; break;
+        case 'a': dx = -1; break;
+        case 'd': dx = 1; break;
+    }
 
-            point newPosition = position;
-            newPosition.move(dx, dy);
+    d_position.move(dx, dy);
+    std::cout << "Position mise à jour : " << d_position.x() << ", " << d_position.y() << std::endl; // Message de débogage
 }
 
     void Aventurier::subirDegats(int degats) {
-    	if(armure) {
+    	if(d_armure) {
             
-            armure->utiliser();
+            d_armure->utiliser();
         }
-        pointsDeVie -= degats;
-        if (pointsDeVie < 0) {
-            pointsDeVie = 0;
+        d_pointsDeVie -= degats;
+        if (d_pointsDeVie < 0) {
+            d_pointsDeVie = 0;
         }
     }
      void Aventurier::attaquer(Monstre& monstre) {
-    double distance = position.distance(monstre.getPosition());
+    double distance = d_position.distance(monstre.getPosition());
     if (distance <= 1.0) { 
-        int degats = pointsDeForce;
-        if (epee) {
-            degats += epee->getSolidite();
-            epee->utiliser(); 
+        int degats = d_pointsDeForce;
+        if (d_epee) {
+            degats += d_epee->getSolidite();
+            d_epee->utiliser(); 
         }
         monstre.subirDegats(degats);
 
@@ -50,32 +50,32 @@ namespace geom {
     
     
      void Aventurier::equiperEpee(Epee* nouvelleEpee) {
-        epee = nouvelleEpee;
+        d_epee = nouvelleEpee;
     }
 
     void Aventurier::enleverEpee() {
-        epee = nullptr;
+        d_epee = nullptr;
     }
 
     void Aventurier::equiperArmure(Armure* nouvelleArmure) {
-        armure = nouvelleArmure;
+        d_armure = nouvelleArmure;
     }
 
     void Aventurier::enleverArmure() {
-        armure = nullptr;
+        d_armure = nullptr;
     }
     
 
     point Aventurier::getPosition() const {
-        return position;
+        return d_position;
     }
 
     int Aventurier::getPV() const {
-        return pointsDeVie;
+        return d_pointsDeVie;
     }
 
     int Aventurier::getForce() const {
-        return pointsDeForce;
+        return d_pointsDeForce;
     }
 
     char Aventurier::getSymbole() const {

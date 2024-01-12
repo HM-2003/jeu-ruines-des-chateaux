@@ -30,4 +30,5 @@
     int Monstre::getForce() const {
         return pointsDeForce;
     }
+    
 }

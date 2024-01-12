@@ -19,6 +19,28 @@ namespace geom {
     void Terrain::placerAmulette(Amulette* a) {
         amulette = a;
    }
+    bool Terrain::estPositionLibre(const point& pos) const {
+    
+        if (pos.x() < 0 || pos.x() >= largeur || pos.y() < 0 || pos.y() >= hauteur) {
+            return false;
+        }
+
+     
+        for (const auto& mur : murs) {
+            if (mur.getPosition() == pos) {
+                return false;
+            }
+        }
+
+      
+        for (const auto& monstre : monstres) {
+            if (monstre->getPosition() == pos) {
+                return false;
+            }
+        }
+
+        return true; 
+    }
 
     void Terrain::afficher() const {
         for (int y = 0; y < hauteur; ++y) {
@@ -46,7 +68,7 @@ namespace geom {
         }
     }
                     }
-                    if (!affiche) std::cout << '.'; // Espace vide
+                    if (!affiche) std::cout << '.'; 
                 }
             }
             std::cout << std::endl;
